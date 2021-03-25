@@ -38,7 +38,7 @@ class RandomGenerator {
         return list[this.RandomInteger(0, list.length - 1)];
     }
     // -------------5--------------
-    static RandomOneSelection(list, seed){
+    static SeededRandomOneSelection(list, seed){
         return list[this.SeededRandomInteger(seed, 0, list.length - 1)];
     }
     // -------------6--------------
@@ -62,6 +62,11 @@ class RandomGenerator {
 }
 
 module.exports = RandomGenerator;
+
+let list1 = [5, 17, 18, 45, 16];
+let rand = RandomGenerator.SeededRandomMultiSelection(list1, 'hello',2);
+console.log(rand);
+
 
 
 
