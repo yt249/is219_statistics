@@ -28,6 +28,8 @@ test('5. Standard Deviation', () => {
 test('6. Quartiles', () => {
     let list = [1, 2 , 3 , 4 , 5];
     expect(Statistics.Quartiles(list)).toStrictEqual([1.5, 4.5]);
+    let list2 = [1, 3, 4, 5, 6, 7];
+    expect(Statistics.Quartiles(list2)).toStrictEqual([3, 6]);
 });
 
 test('7. Skewness', () => {
@@ -39,12 +41,19 @@ test('8. Sample Correlation Coefficient', () => {
     let list1 = [1, 2, 3, 4, 5];
     let list2 = [3, 4, 5, 6, 7];
     expect(Statistics.SampleCorrelationCoefficient(list1, list2)).toBe(1);
+    let list3 = [1, 2, 3, 4, 5, 6];
+    let list4 = [3, 4, 5, 6, 7];
+    expect(Statistics.SampleCorrelationCoefficient(list3, list4)).toStrictEqual(false);
+
 });
 
 test('9. Population Correlation Coefficient', () => {
     let list1 = [1, 2, 3, 4, 5];
     let list2 = [3, 4, 5, 6, 7];
     expect(Statistics.PopulationCorrelationCoefficient(list1, list2)).toBe(1);
+    let list3 = [1, 2, 3, 4, 5, 6];
+    let list4 = [3, 4, 5, 6, 7];
+    expect(Statistics.SampleCorrelationCoefficient(list3, list4)).toStrictEqual(false);
 });
 
 test('10. ZScore', () => {
