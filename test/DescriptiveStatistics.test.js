@@ -53,7 +53,7 @@ test('9. Population Correlation Coefficient', () => {
     expect(Statistics.PopulationCorrelationCoefficient(list1, list2)).toBe(1);
     let list3 = [1, 2, 3, 4, 5, 6];
     let list4 = [3, 4, 5, 6, 7];
-    expect(Statistics.SampleCorrelationCoefficient(list3, list4)).toStrictEqual(false);
+    expect(Statistics.PopulationCorrelationCoefficient(list3, list4)).toStrictEqual(false);
 });
 
 test('10. ZScore', () => {
