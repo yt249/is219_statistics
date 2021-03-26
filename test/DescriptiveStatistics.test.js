@@ -13,6 +13,9 @@ test('2. Median', () => {
 test('3. Mode', () => {
     let list = [1, 3 , 3 , 4 , 5];
     expect(Statistics.Mode(list)).toStrictEqual([3]);
+    let list2 = [1, 3 , 3 , 4, 4 , 5];
+    expect(Statistics.Mode(list2)).toStrictEqual([3, 4]);
+
 });
 
 test('4. Variance', () => {
