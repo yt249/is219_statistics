@@ -24,7 +24,7 @@ class Statistics {
     // -------------3--------------
     static Mode(list){
         let modes = [];
-        let count = [];
+        let count = {};
         let maxIndex = 0;
         for (let i = 0; i < list.length; i++) {
             let num = list[i];
@@ -34,10 +34,8 @@ class Statistics {
             }
         }
         for (let i in count)
-            if (count.hasOwnProperty(i)) {
-                if (count[i] === maxIndex) {
-                    modes.push(Number(i));
-                }
+            if (count[i] === maxIndex) {
+                modes.push(Number(i));
             }
         return modes;
     }
