@@ -117,33 +117,33 @@ class Statistics {
     }
 
     // -------------9--------------
-    static PopulationCorrelationCoefficient(list1, list2) {
+    static PopulationCorrelationCoefficient(list3, list4) {
 
-        if(list1.length !== list2.length){
+        if(list3.length !== list4.length){
             return false;
         }
 
         let sumX = 0, sumY = 0, sumXY = 0;
         let squareSumX = 0, squareSumY = 0;
 
-        for (let i = 0;i < list1.length;i++){
+        for (let i = 0;i < list3.length;i++){
             // sum of elements of array X.
-            sumX = sumX + list1[i];
+            sumX = sumX + list3[i];
 
             // sum of elements of array Y.
-            sumY = sumY + list2[i];
+            sumY = sumY + list4[i];
 
             // sum of X[i] * Y[i].
-            sumXY = sumXY + list1[i] * list2[i];
+            sumXY = sumXY + list3[i] * list4[i];
 
             // sum of square of array elements.
-            squareSumX = squareSumX + list1[i] * list1[i];
-            squareSumY = squareSumY + list2[i] * list2[i];
+            squareSumX = squareSumX + list3[i] * list3[i];
+            squareSumY = squareSumY + list4[i] * list4[i];
         }
 
-        return (list1.length * sumXY - sumX * sumY) /
-            (Math.sqrt((list1.length * squareSumX -
-                sumX * sumX) * (list1.length * squareSumY -
+        return (list3.length * sumXY - sumX * sumY) /
+            (Math.sqrt((list3.length * squareSumX -
+                sumX * sumX) * (list3.length * squareSumY -
                 sumY * sumY)));
     }
 // -------------10--------------
