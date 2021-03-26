@@ -42,6 +42,7 @@ class Statistics {
         return modes;
     }
     // -------------4--------------
+    // for sample
     static Variance(list){
         let mean = this.Mean(list);
         let total = 0;
@@ -85,7 +86,7 @@ class Statistics {
     }
 
     // -------------8--------------
-    static CorrelationCoefficient(list1, list2) {
+    static SampleCorrelationCoefficient(list1, list2) {
 
         if(list1.length !== list2.length){
             return false;
@@ -115,7 +116,36 @@ class Statistics {
                 sumY * sumY)));
     }
 
+    // -------------9--------------
+    static PopulationCorrelationCoefficient(list1, list2) {
 
+        if(list1.length !== list2.length){
+            return false;
+        }
+
+        let sumX = 0, sumY = 0, sumXY = 0;
+        let squareSumX = 0, squareSumY = 0;
+
+        for (let i = 0;i < list1.length;i++){
+            // sum of elements of array X.
+            sumX = sumX + list1[i];
+
+            // sum of elements of array Y.
+            sumY = sumY + list2[i];
+
+            // sum of X[i] * Y[i].
+            sumXY = sumXY + list1[i] * list2[i];
+
+            // sum of square of array elements.
+            squareSumX = squareSumX + list1[i] * list1[i];
+            squareSumY = squareSumY + list2[i] * list2[i];
+        }
+
+        return (list1.length * sumXY - sumX * sumY) /
+            (Math.sqrt((list1.length * squareSumX -
+                sumX * sumX) * (list1.length * squareSumY -
+                sumY * sumY)));
+    }
 // -------------10--------------
     static ZScore(list){
         let list2 = [];
@@ -125,7 +155,7 @@ class Statistics {
         return list2;
     }
 
-    // -------------11--------------
+// -------------11--------------
     static MeanDeviation(list){
         let mean = this.Mean(list);
         let total = 0;
@@ -138,8 +168,5 @@ class Statistics {
 
 module.exports = Statistics;
 
-let list1 = [43, 21, 25, 42, 57, 59];
-let list2 = [99, 65, 79, 75, 87, 81];
-
-let a = Statistics.CorrelationCoefficient(list1, list2);
-console.log(a);
+let list = [1, 2 , 3 , 4 , 5];
+console.log(Statistics.Quartiles(list));
