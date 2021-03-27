@@ -42,7 +42,7 @@ class Statistics {
     // -------------4--------------
     // for sample
     static Variance(list){
-        let mean = this.Mean(list);
+        let mean = Statistics.Mean(list);
         let total = 0;
         for (let i = 0; i < list.length; i++){
             total += (list[i] - mean) ** 2;
@@ -51,7 +51,7 @@ class Statistics {
     }
     // -------------5--------------
     static StandardDeviation(list){
-        return Math.sqrt(this.Variance(list));
+        return Math.sqrt(Statistics.Variance(list));
     }
     // -------------6--------------
     static Quartiles(list){
@@ -67,20 +67,20 @@ class Statistics {
             list1 = list.slice(0, (len-1)/2);
             list2 = list.slice((len-1)/2+1, len);
         }
-        return [this.Median(list1), this.Median(list2)];
+        return [Statistics.Median(list1), Statistics.Median(list2)];
     }
     // -------------7--------------
     static Skewness(list){
         let total = 0;
         for (let i = 0; i < list.length; i++){
-            total += (list[i] - this.Mean(list)) *
-                        (list[i] - this.Mean(list)) *
-                        (list[i] - this.Mean(list));
+            total += (list[i] - Statistics.Mean(list)) *
+                        (list[i] - Statistics.Mean(list)) *
+                        (list[i] - Statistics.Mean(list));
         }
 
-        return total / (list.length * this.StandardDeviation(list) *
-            this.StandardDeviation(list) *
-            this.StandardDeviation(list));
+        return total / (list.length * Statistics.StandardDeviation(list) *
+            Statistics.StandardDeviation(list) *
+            Statistics.StandardDeviation(list));
     }
 
     // -------------8--------------
@@ -148,14 +148,14 @@ class Statistics {
     static ZScore(list){
         let list2 = [];
         for (let i = 0; i < list.length; i++) {
-            list2.push((list[i]-this.Mean(list))/this.StandardDeviation(list));
+            list2.push((list[i]-Statistics.Mean(list))/Statistics.StandardDeviation(list));
         }
         return list2;
     }
 
 // -------------11--------------
     static MeanDeviation(list){
-        let mean = this.Mean(list);
+        let mean = Statistics.Mean(list);
         let total = 0;
         for (let i = 0; i < list.length; i++){
             total += Math.abs(list[i] - mean);
@@ -165,6 +165,3 @@ class Statistics {
 }
 
 module.exports = Statistics;
-
-let list = [1, 2 , 3 , 4 , 5];
-console.log(Statistics.Quartiles(list));

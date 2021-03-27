@@ -63,10 +63,6 @@ class RandomGenerator {
 
 module.exports = RandomGenerator;
 
-let list1 = [5, 17, 18, 45, 16];
-let rand = RandomGenerator.SeededRandomMultiSelection(list1, 'hello',2);
-console.log(rand);
-
 
 
 

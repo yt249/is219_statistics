@@ -1,6 +1,3 @@
-AdditionOps = require("./Addition");
-SubtractionOps = require("./Subtraction");
-
 class MathOperations {
 
     static sum(a,b){
@@ -18,12 +15,15 @@ class MathOperations {
                 tempb = b.reduce((a, b) => a + b);
         return tempa + tempb;
     }
+
     static difference(a,b){
         return a - b;
     }
+
     static product(a,b) {
         return a * b;
     }
+
     // 6. throw an exception for divide by zero
     static quotient(a,b){
         if (b===0)
@@ -31,13 +31,14 @@ class MathOperations {
         else
             return a / b;
     }
+
     static power(a, b){
         return Math.pow(a,b);
     }
+
     static root(a, b){
         return Math.pow(a, 1/b);
     }
-
 
 }
 
