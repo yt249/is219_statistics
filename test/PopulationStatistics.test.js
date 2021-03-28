@@ -4,7 +4,7 @@ const PopulationSampling = require('../src/Statistics/PopulationSampling');
 
 seed = 10;
 
-test('simple random sample', () => {
+test('1. simple random sample', () => {
     let size = 10;
     let randList = RandomGenerator.SeededRandomListInteger(10,10, 100, size);
     let sampleSize = RandomGenerator.SeededRandomInteger(1, 10, (size));
@@ -15,7 +15,7 @@ test('simple random sample', () => {
     expect(list1).toEqual(list2);
 });
 
-test('systematic random sample', () => {
+test('2. systematic random sample', () => {
    let size = 10;
    let randList = RandomGenerator.SeededRandomListInteger(seed, 10, 100, size);
    let sampleSize = RandomGenerator.SeededRandomInteger(seed, 1, size - 1);
@@ -29,7 +29,7 @@ test('z score from confidence', () => {
     expect(PopulationSampling.getZScoreFromConfidence(95)).toEqual(1.96);
 });
 
-test('margin of error', () => {
+test('4. margin of error', () => {
     let size = 10;
     let sampleList = RandomGenerator.SeededRandomListInteger(seed, -100, 100, size);
     let confidence = Math.floor(RandomGenerator.SeededRandomInteger(seed, 50, 95) / 5) * 5;
@@ -38,7 +38,7 @@ test('margin of error', () => {
     expect(marginOfError).toBeGreaterThan(0);
 });
 
-test('confidence interval', () => {
+test('5. confidence interval', () => {
     let size = 10;
     let sampleList = RandomGenerator.SeededRandomListInteger(seed, -100, 100, size);
     let confidence = Math.floor(RandomGenerator.SeededRandomInteger(seed, 50, 95) / 5) *5;
@@ -50,15 +50,15 @@ test('confidence interval', () => {
     expect(confidenceInterval[1]).toBeGreaterThan(mean);
 });
 
-test('cochran sample size', () => {
+test('6. cochran sample size', () => {
     expect(PopulationSampling.cochran(95, 5, 0.5, 1000)).toEqual(278);
 });
 
-test('sample size with no std dev', () => {
+test('7. sample size with no std dev', () => {
     expect(PopulationSampling.sampleSizeNoStdDev(95, 10, 0.5)).toBeGreaterThan(0);
 });
 
-test('sample size with std dev', () => {
+test('8. sample size with std dev', () => {
     let size = 10;
     let sampleList = RandomGenerator.SeededRandomListInteger(100, -100, 100, size);
     let confidence = Math.floor(RandomGenerator.SeededRandomInteger(100, 50, 95) / 5) * 5;
