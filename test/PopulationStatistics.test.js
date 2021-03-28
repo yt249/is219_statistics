@@ -1,4 +1,3 @@
-const expect = require("expect");
 const RandomGenerator = require('../src/Statistics/RandomGenerator');
 const Descriptive = require('../src/Statistics/DescriptiveStatistics');
 const PopulationSampling = require('../src/Statistics/PopulationSampling');
@@ -26,8 +25,8 @@ test('systematic random sample', () => {
 });
 
 test('z score from confidence', () => {
-    expect(PopulationSampling.getZScoreFromConfidence(85).toEqual(1.44));
-    expect(PopulationSampling.getZScoreFromConfidence(95).toEqual(1.96));
+    expect(PopulationSampling.getZScoreFromConfidence(85)).toEqual(1.44);
+    expect(PopulationSampling.getZScoreFromConfidence(95)).toEqual(1.96);
 });
 
 test('margin of error', () => {
