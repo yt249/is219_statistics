@@ -44,7 +44,7 @@ class PopulationSampling {
         return z * Descriptive.StandardDeviation(sampleList) / (sampleList.length ** 0.5);
     }
 
-    // 5. confidence interval
+    // 3. confidence interval for sample
     static confidenceInterval(sampleList, confidence = 95) {
         if (sampleList.length === 0) {
             throw("ERROR: Empty list, can't divide by 0");
