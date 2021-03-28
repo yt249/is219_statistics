@@ -15,14 +15,14 @@ test('1. simple random sample', () => {
     expect(list1).toEqual(list2);
 });
 
-test('2. systematic random sample', () => {
-   let size = 10;
-   let randList = RandomGenerator.SeededRandomListInteger(seed, 10, 100, size);
-   let sampleSize = RandomGenerator.SeededRandomInteger(seed, 1, size - 1);
-   let sampleList = PopulationSampling.systematicSample(randList, sampleSize);
+// test('2. systematic random sample', () => {
+//   let size = 10;
+//   let randList = RandomGenerator.SeededRandomListInteger(seed, 10, 100, size);
+//   let sampleSize = RandomGenerator.SeededRandomInteger(seed, 1, size - 1);
+//  let sampleList = PopulationSampling.systematicSample(randList, sampleSize);
 
-   expect(sampleList).toHaveLength(sampleSize);
-});
+//  expect(sampleList).toHaveLength(sampleSize);
+// });
 
 test('z score from confidence', () => {
     expect(PopulationSampling.getZScoreFromConfidence(85)).toEqual(1.44);
