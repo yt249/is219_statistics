@@ -9,9 +9,9 @@ Project Outline:
 
 ### Tasks: 
 Yu-Ching:
-<br><b>DescriptiveStatistics.js and RandomGenerator.js</b>
+<br><b><u>DescriptiveStatistics.js</u> and <u>RandomGenerator.js</u></b>
  - all functions and tests
 
 Vartika:
-<br><b>PopulationSampling.js</b>
+<br><b><u>PopulationSampling.js</u></b>
  - all functions and tests 
