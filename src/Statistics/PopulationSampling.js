@@ -16,33 +16,23 @@ const perToZScore = new Map ([
 ]);
 
 class PopulationSampling {
-    static getZScoreFromConfidence(confidence) {
-        let percentage = Math.floor(confidence);
-        return perToZScore.get(percentage);
-    }
 
     // 1. simple random sample
     static simpleRandomSample(list, sampleSize, seed) {
         return Random.SeededRandomMultiSelection(seed, list, sampleSize);
     }
 
-    // 2. systematic sampling
-    static systematicSample(list, sampleSize) {
-        let aList = [];
-        let picker = 0;
-        for (picker = Math.floor(Math.random() * list.length) + 1; aList.length < sampleSize; picker++ ) {
-            if(picker === list.length){
-                aList.push(list[picker]);
-            }
-        }
-        return aList;
-    }
-
-    // 4. margin of error
-    static marginOfError(sampleList, confidence) {
-        let z = PopulationSampling.getZScoreFromConfidence(confidence);
-        return z * Descriptive.StandardDeviation(sampleList) / (sampleList.length ** 0.5);
-    }
+    // // 2. systematic sampling
+    // static systematicSample(list, sampleSize) {
+    //     let aList = [];
+    //     let picker = 0;
+    //     for (picker = Math.floor(Math.random() * list.length) + 1; aList.length < sampleSize; picker++ ) {
+    //         if(picker === list.length){
+    //             aList.push(list[picker]);
+    //         }
+    //     }
+    //     return aList;
+    // }
 
     // 3. confidence interval for sample
     static confidenceInterval(sampleList, confidence = 95) {
@@ -56,6 +46,18 @@ class PopulationSampling {
         let confInt2 = mean + marOfErr;
         let confIntList = [confInt1, confInt2];
         return confIntList;
+    }
+
+    // 4. margin of error
+    static marginOfError(sampleList, confidence) {
+        let z = PopulationSampling.getZScoreFromConfidence(confidence);
+        return z * Descriptive.StandardDeviation(sampleList) / (sampleList.length ** 0.5);
+    }
+
+    // 5.
+    static getZScoreFromConfidence(confidence) {
+        let percentage = Math.floor(confidence);
+        return perToZScore.get(percentage);
     }
 
     // 6. cochran's sample size formula
