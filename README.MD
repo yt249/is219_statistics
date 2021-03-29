@@ -5,7 +5,7 @@
 ### Team Members: Yu-Ching Tseng and Vartika Patel
 
 Project Outline:
-[outline.docx]()
+[ProjectOutline.docx](https://github.com/yt249/is219_statistics/blob/master/Stats%20Project%20Outline.docx)
 
 ### Tasks: 
 Yu-Ching:
